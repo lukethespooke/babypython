@@ -1,0 +1,55 @@
+'''prints large digits sequentially like a 7 segment display'''
+
+line1_storage = ('   ', ' _ ')
+line2_storage = ('|_|', '|_ ', ' _|', '  |', '| |')
+line3_storage = ('|_|', '|_ ', ' _|', '  |')
+
+One_elems = (line1_storage[0], line2_storage[3], line3_storage[3])
+Two_elems = (line1_storage[1], line2_storage[2], line3_storage[1])
+Three_elems = (line1_storage[1], line2_storage[2], line3_storage[2])
+Four_elems = (line1_storage[0], line2_storage[0], line3_storage[3])
+Five_elems = (line1_storage[1], line2_storage[1], line3_storage[2])
+Six_elems = (line1_storage[1], line2_storage[1], line3_storage[0])
+Seven_elems = (line1_storage[1], line2_storage[3], line3_storage[3])
+Eight_elems = (line1_storage[1], line2_storage[0], line3_storage[0])
+Nine_elems = (line1_storage[1], line2_storage[0], line3_storage[3])
+Zero_elems = (line1_storage[1], line2_storage[4], line3_storage[0])
+
+dict_key = {1:One_elems, 
+            2:Two_elems, 
+            3:Three_elems, 
+            4:Four_elems, 
+            5:Five_elems, 
+            6:Six_elems, 
+            7:Seven_elems, 
+            8:Eight_elems, 
+            9:Nine_elems, 
+            0:Zero_elems}
+
+print("Input takes numbers only, no spaces")
+number = list(input())
+number_size = len(number)
+
+def print_large_number(number_size):
+    
+    first_line = ''
+    second_line = ''
+    third_line = ''
+    
+    for i in number_size:
+        get_number = int(i)
+        first_line += dict_key[get_number][0]
+
+    for i in number_size:
+        get_number = int(i)
+        second_line += dict_key[get_number][1]
+
+    for i in number_size:
+        get_number = int(i)
+        third_line += dict_key[get_number][2]
+        
+    print(first_line)
+    print(second_line)
+    print(third_line)
+    
+print_large_number(number)
